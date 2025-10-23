@@ -1,9 +1,4 @@
-library(tidymodels)
-library(nnet)
-library(ggplot2)
-library(zoo)
-library(dplyr)
-library(tidyverse)
+source("./code/setup.R")
 
 make_data <- function(n, std_dev = 0.2) {
   df = data.frame(x = runif(n, min = 0, max = 1)) %>%
@@ -114,6 +109,7 @@ ggplot(test_df, aes(x, rolling_coverage)) +
   ylab("Proportion covered") +
   xlab("x") +
   theme_minimal()
+
 
 
 
