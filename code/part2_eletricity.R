@@ -91,9 +91,9 @@ for (n in seq(train_lag, N)) {
 
 
 
-################################
-### WEIGHTED CP ######
-################################
+##################################
+### WEIGHTED CP (Barber et al) ###
+##################################
 
 weighted_quantile <- function(scores, weights, probs) {
   ord <- order(scores)
@@ -158,9 +158,9 @@ for (n in seq(train_lag, N)) {
 
 
 
-################################
-### ADAPTIVE CP (Gibbs & Candès)
-################################
+#####################################
+### ADAPTIVE CP (Gibbs & Candès) ####
+#####################################
 
 results_adaptive_cp = data.frame()
 alpha_vec = rep(NA, N - train_lag)
@@ -271,6 +271,7 @@ ggplot(data = alpha_df,
   geom_line() +
   theme_minimal(base_size = 14) +
   geom_hline(yintercept = 0.1, col = "red", lwd = 1)
+
 
 
 
