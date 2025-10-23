@@ -10,7 +10,8 @@ required_pkgs <- c(
   "tidyverse", 
   "xgboost", 
   "nnet", 
-  "tidymodels"
+  "tidymodels", 
+  "zoo"
 )
 
 for (pkg in required_pkgs) {
@@ -21,5 +22,6 @@ for (pkg in required_pkgs) {
 }
 
 message("Setup complete ✓")
+
 
 
