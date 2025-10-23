@@ -1,11 +1,5 @@
 source("./code/part3_preparedata.R")
-library(dplyr)
-library(xgboost)
-library(rsample)
-library(matrixStats)
-library(tidyverse)
-library(ggplot2)
-
+source("./code/setup.R")
 
 
 # Formulas
@@ -209,4 +203,5 @@ ggplot(district_coverage_both,
   labs(x = "", y = "Empirical Coverage") +
   theme_minimal(base_size = 10) +
   theme(legend.position = "bottom")
+
 
