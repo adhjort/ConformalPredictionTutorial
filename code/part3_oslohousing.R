@@ -2,8 +2,9 @@ source("./code/part3_preparedata.R")
 library(dplyr)
 library(xgboost)
 library(rsample)
-library(dplyr)
-library(matrixStats)  # for weighted quantile via weightedQuantile()
+library(matrixStats)
+library(tidyverse)
+library(ggplot2)
 
 
 
@@ -28,13 +29,14 @@ ggplot(df_oslo,
 # --- Split data: train / calibration / test ---
 set.seed(123)
 
-split_main <- initial_split(df_oslo, prop = 0.6)
-df_train <- training(split_main)
-df_temp  <- testing(split_main)
+df_oslo = df_oslo %>% 
+  mutate(split = sample(c("train", "calibration", "test"), 
+                        size = n(), replace = TRUE, 
+                        prob = c(0.6, 0.2, 0.2)))
 
-split_cal <- initial_split(df_temp, prop = 0.5)
-df_calibration <- training(split_cal)
-df_test <- testing(split_cal)
+df_train <- df_oslo %>% filter(split == "train") 
+df_calibration <- df_oslo %>% filter(split == "calibration")
+df_test <- df_oslo %>% filter(split == "test")
 
 # --- Prepare matrices for XGBoost ---
 # Create model matrix from formula (handles factors automatically)
@@ -149,10 +151,11 @@ spatial_q90 <- function(test_coords, cal_coords, scores, rho, q = 0.9) {
 q90_i <- numeric(nrow(test_coords))
 
 for (i in seq_len(nrow(test_coords))) {
+  if( i %% 500 == 0){cat("i: ", i, "\n")}
   q90_i[i] <- spatial_q90(
     test_coords[i, ],
     cal_coords,
-    cal_resid,
+    scores,
     rho = 500,
     q = 0.9
   )
