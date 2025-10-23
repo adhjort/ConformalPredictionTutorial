@@ -1,7 +1,5 @@
-library(tidymodels)
-library(nnet)
-library(ggplot2)
-library(zoo)
+source("./code/setup.R")
+
 # -------------------------------------
 # SIMULATE DATA
 #-----------------------------------------
@@ -123,6 +121,7 @@ ggplot(test_df, aes(x, rolling_coverage)) +
   ylab("Proportion covered") +
   xlab("x") +
   theme_minimal()
+
 
 
 
