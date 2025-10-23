@@ -1,5 +1,4 @@
 source("./code/setup.R")
-set.seed(123)
 
 make_data <- function(n, std_dev = 0.2) {
   tibble(x = runif(n, min = 0, max = 1)) %>%
@@ -146,6 +145,7 @@ simulate_coverages <- function(n_sims = 1000,
 }
 
 
+set.seed(123)
 # 1) Homoscedastic + absolute residuals
 res1 <- simulate_coverages(n_sims = 500, n = 500,
                            hetero = FALSE, method = "abs", alpha = 0.1)
@@ -157,5 +157,6 @@ res2 <- simulate_coverages(n_sims = 500, n = 500,
 # 3) Heteroscedastic + normalized residuals (adapts width; global calibration)
 res3 <- simulate_coverages(n_sims = 500, n = 500,
                            hetero = TRUE, method = "normalized", alpha = 0.1)
+
 
 
