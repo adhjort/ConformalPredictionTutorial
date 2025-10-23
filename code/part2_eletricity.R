@@ -2,6 +2,11 @@ library(tidyverse)
 library(data.table)
 library(dplyr)
 
+######## DISCLAIMER ######## 
+# This code is highly inspired by the Python code used in the paper "Conformal prediction beyond exchangeability" by Barber et al. 
+# Her code can be downloaded from: https://rinafb.github.io/code/nonexchangeable_conformal.zip
+
+
 # --- 1. Read and prepare data ----
 
 set.seed(123)
@@ -265,6 +270,7 @@ ggplot(data = alpha_df,
   geom_line() +
   theme_minimal(base_size = 14) +
   geom_hline(yintercept = 0.1, col = "red", lwd = 1)
+
 
 
 
