@@ -1,7 +1,4 @@
-library(tidymodels)
-library(nnet)
-library(ggplot2)
-library(zoo)
+source("./code/setup.R")
 
 #-----------------------------------------
 # DATA GENERATION WITH 5 GROUPS
@@ -127,3 +124,4 @@ coverage_summary %>%
   ylab("Empirical coverage") +
   theme_minimal() + 
   theme(legend.position = "bottom")
+
