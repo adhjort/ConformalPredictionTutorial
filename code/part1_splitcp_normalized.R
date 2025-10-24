@@ -1,4 +1,4 @@
-source("./code/setup.R")
+source("setup.R")
 
 # -------------------------------------
 # SIMULATE DATA
@@ -121,6 +121,7 @@ ggplot(test_df, aes(x, rolling_coverage)) +
   ylab("Proportion covered") +
   xlab("x") +
   theme_minimal()
+
 
 
 
