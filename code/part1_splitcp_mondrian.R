@@ -1,4 +1,4 @@
-source("./code/setup.R")
+source("setup.R")
 
 #-----------------------------------------
 # DATA GENERATION WITH 5 GROUPS
@@ -124,4 +124,5 @@ coverage_summary %>%
   ylab("Empirical coverage") +
   theme_minimal() + 
   theme(legend.position = "bottom")
+
 
