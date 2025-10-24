@@ -1,4 +1,4 @@
-source("./code/setup.R")
+source("setup.R")
 
 make_data <- function(n, std_dev = 0.2) {
   df = data.frame(x = runif(n, min = 0, max = 1)) %>%
@@ -109,6 +109,7 @@ ggplot(test_df, aes(x, rolling_coverage)) +
   ylab("Proportion covered") +
   xlab("x") +
   theme_minimal()
+
 
 
 
