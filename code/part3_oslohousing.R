@@ -1,6 +1,8 @@
-source("./code/part3_preparedata.R")
-source("./code/setup.R")
+#source("part3_preparedata.R")
+source("setup.R")
 
+####### WARNING #######
+# This data is unavailable, so this code cannot be run by others. 
 
 # Formulas
 model_formula = as.formula(SalePrice ~ PRom + Longitude + 
@@ -203,5 +205,6 @@ ggplot(district_coverage_both,
   labs(x = "", y = "Empirical Coverage") +
   theme_minimal(base_size = 10) +
   theme(legend.position = "bottom")
+
 
 
