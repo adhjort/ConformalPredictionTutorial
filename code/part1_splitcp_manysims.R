@@ -1,4 +1,4 @@
-source("./code/setup.R")
+source("setup.R")
 
 make_data <- function(n, std_dev = 0.2) {
   tibble(x = runif(n, min = 0, max = 1)) %>%
@@ -157,6 +157,7 @@ res2 <- simulate_coverages(n_sims = 500, n = 500,
 # 3) Heteroscedastic + normalized residuals (adapts width; global calibration)
 res3 <- simulate_coverages(n_sims = 500, n = 500,
                            hetero = TRUE, method = "normalized", alpha = 0.1)
+
 
 
 
