@@ -1,4 +1,4 @@
-source("./code/setup.R")
+source("setup.R")
 
 ######## DISCLAIMER ######## 
 # This code is highly inspired by the Python code used in the paper "Conformal prediction beyond exchangeability" by Barber et al. 
@@ -268,6 +268,7 @@ ggplot(data = alpha_df,
   geom_line() +
   theme_minimal(base_size = 14) +
   geom_hline(yintercept = 0.1, col = "red", lwd = 1)
+
 
 
 
